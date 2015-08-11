@@ -11,7 +11,16 @@ class User < ActiveRecord::Base
   end
 
   def twitter_client
-    @twitter_client ||= Twitter.client(access_token: twitter.access_token)
+    @client  ||= Twitter::REST::Client.new do |config|
+      config.consumer_key = ENV['twitter_key']
+      config.consumer_secret = ENV['twitter_secret']
+      config.access_token = twitter.access_token
+      config.access_token_secret = twitter.access_token_secret
+    end
+  end
+
+  def twitter_feed
+    twitter_client.home_timeline
   end
 
   def instagram
