@@ -24,10 +24,14 @@ class User < ActiveRecord::Base
   end
 
   def instagram
-    identies.where(:provider => "instagram").first
+    identities.where(:provider => "instagram").first
   end
 
   def instagram_client
     @instagram_client ||= Instagram.client(access_token: instagram.access_token)
+  end
+
+  def instagram_feed
+    instagram_client.user_media_feed
   end
 end
