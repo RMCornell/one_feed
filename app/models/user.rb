@@ -34,4 +34,12 @@ class User < ActiveRecord::Base
   def instagram_feed
     instagram_client.user_media_feed
   end
+
+  def facebook
+    identities.where(:provider => "facebook").first
+  end
+
+  def facebook_client
+    @facebook_client ||= Facebook.client(access_token: facebook.access_token)
+  end
 end

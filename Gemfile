@@ -40,6 +40,9 @@ gem 'twitter'
 gem 'omniauth-instagram'
 gem 'instagram'
 
+gem 'omniauth-facebook'
+gem "koala", "~> 2.2"
+
 gem 'rails_12factor'
 
 
