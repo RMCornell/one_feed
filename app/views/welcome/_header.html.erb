@@ -13,9 +13,9 @@
           <a href="#">User Profile Information</a>
           <ul class="dropdown">
             <li><a href="#">Profile Information</a></li>
-            <li><a href="#">Authorize Facebook</a></li>
             <li><%= link_to "Authorize Twitter", '/users/auth/twitter' %></li>
             <li><%= link_to "Authorize Instagram", '/users/auth/instagram' %></li>
+            <li><%= link_to "Authorize Facebook", '/users/auth/facebook' %></li>
             <li><%= link_to "Signout", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
