@@ -40,6 +40,8 @@ gem 'twitter'
 gem 'omniauth-instagram'
 gem 'instagram'
 
+gem 'rails_12factor'
+
 
 
 # Use ActiveModel has_secure_password
