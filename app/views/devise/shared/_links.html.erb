@@ -1,25 +1,78 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
-<% end -%>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
-<% end -%>
+<section class="front-page">
+<div class="row">
+  <div class="large-12 columns">
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-<% end -%>
+    <div id="slider">
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end -%>
+      <%= image_tag "ONE-Feed.png" %>
+      <div class="sub-heading"><%= image_tag "How much time do YOU.png", :class => "sub-heading-text" %></div>
 
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
-<% end -%>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-<% end -%>
+    </div>
+  </div>
+</div>
+
+<!--<div class="row">-->
+  <!--<div class="large-4 columns">-->
+    <!--<%#= image_tag "BcoAacGCAAEgHC5.jpg" %>-->
+    <!--<h4>This is a content section.</h4>-->
+    <!--<p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>-->
+  <!--</div>-->
+
+  <!--<div class="large-4 columns">-->
+    <!--<img src="http://placehold.it/400x300&text=[img]"/>-->
+    <!--<h4>This is a content section.</h4>-->
+    <!--<p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>-->
+  <!--</div>-->
+
+  <!--<div class="large-4 columns">-->
+    <!--<img src="http://placehold.it/400x300&text=[img]"/>-->
+    <!--<h4>This is a content section.</h4>-->
+    <!--<p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>-->
+  <!--</div>-->
+
+
+<footer class="row">
+  <div class="large-12 columns">
+    <hr/>
+    <div class="row">
+      <div class="large-6 columns">
+        <p>© RCornell</p>
+      </div>
+      <div class="large-6 columns">
+        <ul class="inline-list right">
+          <%- if devise_mapping.omniauthable? %>
+              <%- resource_class.omniauth_providers.each do |provider| %>
+                  <li><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), :class => "button" %></li>
+              <% end -%>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<%#- if controller_name != 'sessions' %>
+  <%#= link_to "Log in", new_session_path(resource_name) %><br />
+<%# end -%>
+
+<%#- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%#= link_to "Sign up", new_registration_path(resource_name) %><br />
+<%# end -%>
+
+<%#- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%#= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<%# end -%>
+
+<%#- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%#= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+<%# end -%>
+
+<%#- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%#= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+<%# end -%>
+
+</section>
