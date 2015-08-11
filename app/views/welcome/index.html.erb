@@ -27,7 +27,7 @@
     </li>
 
 <% else %>
-    <%= link_to "Authorize Twitter", '/users/auth/twitter' %>
+  <%= link_to "Authorize Twitter", '/users/auth/twitter', :class => "button" %>
 <% end %>
 
 <% if instagram_user %>
@@ -68,7 +68,7 @@
             </li>
         <% end %>
 <% else %>
-        <%= link_to "Authorize Instagram", '/users/auth/instagram' %>
+  <%= link_to "Authorize Instagram", '/users/auth/instagram', :class => "button" %>
 <% end %>
     </ul>
 </div>
