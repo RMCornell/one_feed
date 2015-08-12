@@ -153,4 +153,6 @@ RSpec.describe Identity, type: :model do
       expect(identity_one).to be_valid
     end
 
+    it {expect(user_one).to have_many(:identities)}
+
 end
