@@ -63,6 +63,15 @@ group :development, :test do
   # Add Pry
   gem 'pry'
 
+  # Add SimpleCov
+  gem 'simplecov', :require => false
+
+  # Add Capybara
+  gem 'capybara'
+
+  # Add DatabaseCleaner
+  gem 'database_cleaner'
+
   # Add RSpec
   gem 'rspec-rails'
 

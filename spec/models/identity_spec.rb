@@ -15,7 +15,6 @@ RSpec.describe Identity, type: :model do
                 )
   end
 
-
   let(:identity_one) do
     Identity.create(
                     user_id: user_one.id,
@@ -153,4 +152,5 @@ RSpec.describe Identity, type: :model do
       identity_one.urls = nil
       expect(identity_one).to be_valid
     end
+
 end
