@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
 
   def instagram_client
     @instagram_client ||= Instagram.client(access_token: instagram.access_token)
-  end
+
+ end
 
   def instagram_feed
     instagram_client.user_media_feed
