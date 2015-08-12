@@ -29,6 +29,7 @@
   <%= link_to "Authorize Twitter", '/users/auth/twitter', :class => "button" %>
 <% end %>
 
+<!-- Instagram Feed -->
 <% if instagram_user %>
         <% current_user.instagram_feed.each do |feed_item| %>
             <li>
