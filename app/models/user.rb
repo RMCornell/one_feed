@@ -41,6 +41,11 @@ class User < ActiveRecord::Base
   end
 
   def facebook_client
-    @facebook_client ||= Facebook.client(access_token: facebook.access_token)
+    @facebook_client ||= Koala::Facebook::API.new(facebook.access_token)
   end
+
+  def facebook_me
+    facebook_client.get_object("me")
+  end
+
 end
