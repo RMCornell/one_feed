@@ -49,6 +49,8 @@ gem 'skylight'
 
 
 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -74,8 +76,14 @@ group :development, :test do
   # Add DatabaseCleaner
   gem 'database_cleaner'
 
-  # Add RSpec
+  # Add RSpec and Supporting Gems
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
+  gem 'vcr'
+
+
 
 
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -87,5 +95,6 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'webmock'
 end
 
