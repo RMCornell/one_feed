@@ -126,7 +126,7 @@
 }
 
 .card .container .front {
-    /*z-index: 2;*/
+    z-index: 2;
 }
 
 .card .container .back {
