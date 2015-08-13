@@ -78,17 +78,16 @@ RSpec.describe Identity, type: :model do
     it 'is valid with same uid but different provider'do
       identity_one.uid = 123
       identity_two.uid = 123
+      identity_two.provider = "twitter"
       expect(identity_one).to be_valid
       expect(identity_two).to be_valid
     end
 
     xit 'is invalid with same uid and same provider' do
-      identity_one.uid = 123
-      identity_one.provider = "instagram"
-      identity_two.uid = 123
-      identity_two.provider = "instagram"
+      identity_one.uid = "123"
+      identity_two.uid = "123"
 
-      expect(identity_one).to be_valid
+      expect(identity_one).to_not be_valid
       expect(identity_two).to_not be_valid
     end
 
@@ -102,8 +101,11 @@ RSpec.describe Identity, type: :model do
       expect(identity_two).to be_valid
     end
 
-    xit 'is invalid with same access token from same provider' do
-      #Test that identies cannot have same access token from same provider
+    it 'is invalid with same access token from same provider' do
+      a = identity_one
+      b = identity_two
+      a.uid = "5678"
+      expect(a).to_not be_valid
     end
 
     it 'is valid with same access token secret but different provider' do
@@ -116,9 +118,6 @@ RSpec.describe Identity, type: :model do
       expect(identity_two).to be_valid
     end
 
-    xit 'is invalid with same access token secret from same provider' do
-      #test verifying two identies cannot have same access token secret from same provider
-    end
 
     it 'is valid with or without a refresh token (google auth column)' do
       identity_one.refresh_token = nil
@@ -165,13 +164,31 @@ RSpec.describe Identity, type: :model do
     it { should validate_presence_of(:access_token) }
 
     it { should allow_value(nil, "something").for(:access_token_secret) }
+    it {is_expected.to validate_uniqueness_of(:access_token_secret).scoped_to(:provider).allow_blank}
+
     it { should allow_value(nil, "something").for(:refresh_token) }
     it { should allow_value(nil, "something").for(:email) }
     it { should allow_value(nil, "something").for(:nickname) }
     it { should allow_value(nil, "something").for(:image) }
     it { should allow_value(nil, "something").for(:phone) }
     it { should allow_value(nil, "something").for(:urls)}
+
+    it { expect(identity_one).to have_db_column(:uid).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:provider).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:access_token).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:access_token_secret).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:refresh_token).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:name).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:email).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:nickname).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:image).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:phone).of_type(:string) }
+    it { expect(identity_one).to have_db_column(:urls).of_type(:string) }
+
+
   end
+
+
 
 
 

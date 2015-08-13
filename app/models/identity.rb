@@ -2,6 +2,7 @@ class Identity < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :uid, :provider, :access_token
   validates_uniqueness_of :uid, :scope => :provider
+  validates_uniqueness_of :access_token_secret, :allow_blank => true, :scope => :provider
 
   def self.find_for_oauth(auth)
     identity = find_or_create_by(provider: auth.provider, uid: auth.uid) if identity.nil?
