@@ -45,6 +45,8 @@ gem "koala", "~> 2.2"
 
 gem 'rails_12factor'
 
+gem 'skylight'
+
 
 
 # Use ActiveModel has_secure_password
@@ -74,6 +76,7 @@ group :development, :test do
 
   # Add RSpec
   gem 'rspec-rails'
+
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
