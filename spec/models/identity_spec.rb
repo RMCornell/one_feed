@@ -153,4 +153,26 @@ RSpec.describe Identity, type: :model do
       expect(identity_one).to be_valid
     end
 
+  describe "Associations" do
+    it { expect(identity_one).to belong_to(:user)}
+  end
+
+  describe "Validations" do
+    it { should validate_presence_of(:uid) }
+    it { should validate_uniqueness_of(:uid).scoped_to(:provider)}
+
+    it { should validate_presence_of(:provider) }
+    it { should validate_presence_of(:access_token) }
+
+    it { should allow_value(nil, "something").for(:access_token_secret) }
+    it { should allow_value(nil, "something").for(:refresh_token) }
+    it { should allow_value(nil, "something").for(:email) }
+    it { should allow_value(nil, "something").for(:nickname) }
+    it { should allow_value(nil, "something").for(:image) }
+    it { should allow_value(nil, "something").for(:phone) }
+    it { should allow_value(nil, "something").for(:urls)}
+  end
+
+
+
 end
