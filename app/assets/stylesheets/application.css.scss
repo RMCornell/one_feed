@@ -15,6 +15,7 @@
  *= require foundation_and_overrides
 
  */
+$sizer: 200px;
 
 .front-page {
     background-image: url('busy-people-background.jpg');
@@ -32,7 +33,7 @@
 
 .sub-heading {
     background-color: #999999;
-    height: 200px;
+    height: $sizer;
     opacity: 0.8;
     position: inherit;
     vertical-align: middle;
@@ -104,21 +105,20 @@
     height: 500px;
     -webkit-perspective: 5000;
     perspective: 5000;
+    .container {
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transition: 0.8s;
+      transition: 0.8s;
+      margin: auto;
+    }
 }
 
-.card .container {
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: 0.8s;
-    transition: 0.8s;
-    margin: auto;
-}
-
-.card .container .front, .card .container .back {
-    width: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
+  .front, .card .container .back {
+      width: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+  }
 
 .card .container .front .row, .card .container .front .column, .card .container .front .columns, .card .container .back .row, .card .container .back .column, .card .container .back .columns {
     -webkit-backface-visibility: hidden;
@@ -169,6 +169,7 @@
     margin: 0 auto;
     width: 100px;
     height: 100px;
+    backface-visibility: hidden;
 }
 
 .twitter-inner {
