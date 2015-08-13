@@ -5,14 +5,17 @@
 <div id="feed">
   <ul class="small-block-grid-3">
 
-    <!-- Twitter Feed Cards -->
+<!-- Twitter Feed Cards -->
+
 <% if twitter_user %>
     <% current_user.twitter_feed.each do |feed_item| %>
         <li>
           <div class="service">
             <div class="service-icon-box">
               <div class="service-icon">
+                <div class="twitter-inner"><%= image_tag 'http://cdn.business2community.com/wp-content/uploads/2015/07/Twitter-icon.png.png', :class => "post-icon" %></div>
                 <%= image_tag feed_item.user.profile_image_url %>
+
               </div>
             </div>
             <h4 class="service-heading">
@@ -36,7 +39,8 @@
               <div class="card">
                 <div class="container">
                   <div class="front">
-                    <%= image_tag feed_item.images.standard_resolution.url %>
+                      <%= image_tag feed_item.images.standard_resolution.url %>
+                        <div class="inner"><%= image_tag 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSH8xo6lm3-0qEDM-ma7vNExDBGrG0e_YQppG9DwHt-o5zUQwHrf5Hvaycm', :class => "post-icon" %></div>
                   </div>
 
 
@@ -46,7 +50,7 @@
                     <p><%= feed_item.caption.text %></p>
 
 
-                    <!-- Modal Window-->
+    <!-- Modal Window-->
                     <div>
                       <a href="#" data-reveal-id="user-<%= feed_item.caption.id %>" xmlns="http://www.w3.org/1999/html">Comments</a>
 
@@ -71,8 +75,6 @@
     <%= link_to "Authorize Instagram", '/users/auth/instagram', :class => "button" %>
     <%= link_to "Authorize Facebook", '/users/auth/facebook', :class => "button" %>
 <% end %>
-
-
     </ul>
 </div>
 
