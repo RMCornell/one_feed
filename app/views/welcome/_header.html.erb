@@ -1,25 +1,20 @@
 <div class="sticky">
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><%= link_to "ONEFeed", root_path %></h1>
-      </li>
-    </ul>
+  <header class="header">
+    <div class="row">
+      <div class="medium-8 columns">
 
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="has-dropdown">
-          <a href="#">User Profile Information</a>
-          <ul class="dropdown">
-            <li><a href="#">Profile Information</a></li>
-            <li><%= link_to "Authorize Twitter", '/users/auth/twitter' %></li>
-            <li><%= link_to "Authorize Instagram", '/users/auth/instagram' %></li>
-            <li><%= link_to "Authorize Facebook", '/users/auth/facebook' %></li>
-            <li><%= link_to "Signout", destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-  </nav>
+        <h1><%= link_to "ONEFeed", root_path %></h1>
+
+        <h4>How much time do YOU have to waste?</h4>
+
+      </div>
+    </div>
+    <ul class="subnav hide-for-small-only">
+      <li><%= link_to "Authorize Twitter", '/users/auth/twitter' %></li>
+      <li><%= link_to "Authorize Instagram", '/users/auth/instagram' %></li>
+      <li><%= link_to "Authorize Facebook", '/users/auth/facebook' %></li>
+      <li><%= link_to "Signout", destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </header>
 </div>
+
