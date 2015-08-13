@@ -7,24 +7,27 @@
 
 <!-- Twitter Feed Cards -->
 
-<% if twitter_user %>
-    <% current_user.twitter_feed.each do |feed_item| %>
-        <li>
-          <div class="card">
-            <div class="container">
-              <div class="front">
-                <div class="inner"><%= image_tag 'http://cdn.business2community.com/wp-content/uploads/2015/07/Twitter-icon.png', :class => "post-icon" %></div>
+    <% if twitter_user %>
+        <% current_user.twitter_feed.each do |feed_item| %>
+            <li>
+              <div class="service">
+                <div class="service-icon-box">
+                  <div class="service-icon">
+                    <div class="twitter-inner"><%= image_tag 'http://cdn.business2community.com/wp-content/uploads/2015/07/Twitter-icon.png.png', :class => "post-icon" %></div>
                     <%= image_tag feed_item.user.profile_image_url %>
-              </div>
-                <div class="back">
-                    <h4><%= link_to feed_item.user.name, "http://www.twitter.com/" + feed_item.user.screen_name  %></h4>
-                    <p><%= feed_item.text %></p>
 
+                  </div>
                 </div>
-            </div>
-        </div>
-        </li>
-    <% end %>
+                <h4 class="service-heading">
+                  <%= link_to feed_item.user.name, "http://www.twitter.com/" + feed_item.user.screen_name  %>
+                </h4>
+                <p class="service-description">
+                  <%= feed_item.text %>
+                </p>
+              </div>
+        <% end %>
+    </li>
+
 <% end %>
 
 <!-- Instagram Feed -->
