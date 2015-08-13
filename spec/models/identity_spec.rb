@@ -1,52 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Identity, type: :model do
-  let(:user_one) do
-    User.create(
-                email: nil,
-                sign_in_count: 1,
-                )
-  end
+  let(:user_one) { User.create(email: "one@one-feed.com", sign_in_count: 1)}
+  let(:identity_one) { Identity.create(user_id: user_one.id, provider: "instagram", uid: "1234", access_token: "123456", access_token_secret: "abcdef", refresh_token: nil, name: "robert", email: user_one.email, nickname: "rob", image: nil, phone: nil, urls: nil)}
 
-  let(:user_two) do
-    User.create(
-                email: nil,
-                sign_in_count: 1,
-                )
-  end
+  let(:user_two) { User.create(email: "two@one-feed.com", sign_in_count: 1)}
+  let(:identity_two) { Identity.create(user_id: user_two.id, provider: "instagram", uid: "5678", access_token: "654321", access_token_secret: "ghijkl", refresh_token: nil, name: "robert", email: user_two.email, nickname: "rob", image: nil, phone: nil, urls: nil)}
 
-  let(:identity_one) do
-    Identity.create(
-                    user_id: user_one.id,
-                    provider: "instagram",
-                    uid: "1234",
-                    access_token: "abc123",
-                    access_token_secret: "secret",
-                    refresh_token: nil,
-                    name: "robert",
-                    email: 'robert@rob.com',
-                    nickname: 'robc',
-                    phone: '1234567890',
-                    urls: "urls"
-                    )
-  end
 
-  let(:identity_two) do
-    Identity.create(
-                    user_id: user_two.id,
-                    provider: "instagram",
-                    uid: "5678",
-                    access_token: "cba321",
-                    access_token: "terces",
-                    refresh_token: nil,
-                    name: "The Doctor",
-                    email: "rob@robert.com",
-                    nickname: 'robertc',
-                    phone: "0987654321",
-                    urls: "urls urls"
-                    )
-  end
-
+  describe "validations" do
     it 'is valid' do
       expect(identity_one).to be_valid
       expect(identity_two).to be_valid
@@ -184,12 +146,16 @@ RSpec.describe Identity, type: :model do
     it { expect(identity_one).to have_db_column(:image).of_type(:string) }
     it { expect(identity_one).to have_db_column(:phone).of_type(:string) }
     it { expect(identity_one).to have_db_column(:urls).of_type(:string) }
-
-
   end
 
-
-
-
-
+    describe "public class methods" do
+        context "self.find_for_auth" do
+          xit "responds to method" do
+            expect(identity_one.find_for_oauth).to have_http_response(:success)
+          end
+        end
+      end
+  end
 end
+
+
