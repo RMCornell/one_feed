@@ -7,14 +7,13 @@ RSpec.describe OmniauthCallbacksController, :type => :controller do
     end
 
     xit 'should redirect to signin' do
-      get '/welcome/index'
-      expect(response).to redirect_to(new_user_session_path)
+        expect(:get => "welcome/index").to route_to(root_path)
     end
 
     xit 'should let a user see something' do
       login_with FactoryGirl.create(:user)
       get :index
-      expect(response).to redirect_to(new_user_session_path)
+      expect(response).to route_to(new_user_session_path)
     end
 
   end
@@ -60,5 +59,3 @@ RSpec.describe OmniauthCallbacksController, :type => :controller do
     end
   end
 end
-
-
