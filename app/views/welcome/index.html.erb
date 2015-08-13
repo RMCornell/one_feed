@@ -1,4 +1,4 @@
-<%= render 'header' %>
+<%= render 'welcome/header' %>
 
 <!-- Media Feed -->
 
@@ -70,6 +70,12 @@
             </li>
         <% end %>
 <% end %>
+
+    <% if facebook_user %>
+        <h4>Facebook Stream Not Configured. Select option below to view other social media feeds.</h4>
+        <%= link_to "Authorize Twitter", '/users/auth/twitter', :class => 'button' %>
+        <%= link_to "Authorize Instagram", '/users/auth/instagram', :class => 'button' %>
+    <% end %>
     </ul>
 </div>
 
